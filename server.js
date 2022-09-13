@@ -20,7 +20,7 @@ const db = mysql.createConnection(
     // MySQL username,
     user: 'root',
     // TODO: Add MySQL password here
-    password: 'fuckmedad',
+    password: '',
     database: 'employeeTracker_db'
   },
   console.log(`Connected to the employeeTracker_db database.`)
@@ -127,7 +127,8 @@ function dostuff(){
                     dostuff();
                 })
             }else if(answers.actions==="add a role"){
-                const sql = `INSERT INTO role (title, departmend_id, salary) VALUES (?)`;
+                const sql = `INSERT INTO role (title, department_id, salary) 
+                VALUES (?, ?, ?)`;
                 const param =[answers.roleTitle,answers.roleDepartmentId,answers.salary]
                 db.query(sql,param, (err,results)=>{
                     console.log("role added")
@@ -135,7 +136,7 @@ function dostuff(){
                 })
             }else if(answers.actions==="add an employee"){
                 const sql = `INSERT INTO employee (first_name, last_name, role_id, manager_id)
-                VALUES (?)`;
+                VALUES (?, ?, ?, ?)`;
                 const param =[answers.firstName,answers.lastName,answers.roleId,answers.managerId]
                 db.query(sql,param, (err,results)=>{
                     console.log("employee added")

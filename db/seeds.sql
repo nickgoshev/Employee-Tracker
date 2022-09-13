@@ -1,11 +1,11 @@
 INSERT INTO department (name)
-VALUES ("Web Development"),
-       ("Data Science");
+VALUES ("Lakers"),
+       ("Nets");
 
 
 INSERT INTO role (title, department_id, salary)
-VALUES ("ab", 1, 69),
-       ("cd", 2, 69);
+VALUES ("small_forward", 1, 44000000),
+       ("point_guard", 2, 33000000);
 
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
